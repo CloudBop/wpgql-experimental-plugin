@@ -12,14 +12,14 @@
 add_action('graphql_register_types', 'wpgql_extended_register_types');
 // 
 function wpgql_extended_register_types(){
-  // Register a new type in the Schema
+  // Register a new type in the Schema at root of graph
   register_graphql_field('RootQuery', 'example', [
     //doc
     'description' => __( 'This is just an example field', 'your-textdomain' ),
     'type' => 'String',
     // resolver 
     'resolve' => function(
-      // root, prev object that was resolved
+      // prev object that was resolved, (@ root of graph)
       $root, 
       // input graphql args
       $args, 
@@ -28,7 +28,7 @@ function wpgql_extended_register_types(){
       // object that provides state of tree/graph
       $info
     ) {
-      return "Hello.";
+      return "Hello. ";
     }
   ]);
 
