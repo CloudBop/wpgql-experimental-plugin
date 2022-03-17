@@ -35,6 +35,13 @@ function wpgql_extended_register_types(){
       // object that provides state of tree/graph
       $info
     ) {
+
+      // will resolve the function early and return json;
+      // wp_send_json( [ 'args' => $args ]);
+      
+      // use wpgrapql debug - requires debug to be enabled. -> sends message with resolver
+      // graphql_debug( [ 'args' => $args ]);
+      //... will still resolve
       return "Hello. ". $args['test'];
     }
   ]);
