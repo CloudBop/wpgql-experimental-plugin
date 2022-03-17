@@ -17,6 +17,13 @@ function wpgql_extended_register_types(){
     //doc
     'description' => __( 'This is just an example field', 'your-textdomain' ),
     'type' => 'String',
+    'args' => [
+      'test'=> [
+        //doc
+        'description' => __( 'This is just an example field', 'your-textdomain' ),
+        'type' => "String"
+      ],
+    ],
     // resolver 
     'resolve' => function(
       // prev object that was resolved, (@ root of graph)
@@ -28,7 +35,7 @@ function wpgql_extended_register_types(){
       // object that provides state of tree/graph
       $info
     ) {
-      return "Hello. ";
+      return "Hello. ". $args['test'];
     }
   ]);
 
